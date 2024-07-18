@@ -1,0 +1,105 @@
+OSPF
+
+Dynamic Routing using in single Area 
+
+Pune 
+
+en
+conf t
+line con 0
+password kiran
+exit
+
+line aux 0
+password kiran
+exit
+
+line vty 0 4
+password kiran
+exit
+
+int fa0/0
+ip add 192.168.1.1 255.255.255.0
+no shut 
+exit
+
+int s0/0
+ip add 10.0.0.1 255.0.0.0
+clock rate 64000
+band 64
+exit
+
+router ospf 1
+network 192.168.1.0 255.255.255.0 area 0
+network 10.0.0.0 255.0.0.0 area 0
+
+Mumbai
+
+en
+conf t
+line con 0
+password kiran
+exit
+
+line aux 0
+password kiran
+exit
+
+line vty 0 4
+password kiran
+exit
+
+int fa0/0
+ip add 192.168.2.1 255.255.255.0
+no shut 
+exit
+
+int s0/0
+ip add 10.0.0.2 255.0.0.0 
+no shut 
+exit
+
+int s0/1
+ip add 11.0.0.1 255.0.0.0
+clock rate 64000
+band 64
+exit
+
+router ospf 1
+network 192.168.2.0 255.255.255.0 area 0
+network 11.0.0.0 255.0.0.0 area 0
+network 10.0.0.0 255.0.0.0 area 0
+
+
+
+Solapur 
+
+en
+conf t
+line con 0
+password kiran
+exit
+
+line aux 0
+password kiran 
+exit
+
+line vty 0 4
+password kiran
+exit
+
+int fa0/0
+ip add 192.168.3.1 255.255.255.0
+no shut
+exit
+
+int s0/1
+ip add 11.0.0.2 255.0.0.0
+no shut
+exit
+
+router ospf 1
+network 192.168.3.0 255.255.255.0 area 0
+network 11.0.0.0 255.0.0.0 area 0
+
+
